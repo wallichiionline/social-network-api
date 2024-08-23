@@ -1,6 +1,6 @@
-const getDate = () => {
-    var date = new Date(this.createdAt);
+function getDate(d){
+    var date = new Date(d);
     return date.toLocaleDateString();
-};
+}
 
-module.exports = getDate;
+module.exports = {getDate};
