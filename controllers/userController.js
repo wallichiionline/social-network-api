@@ -96,7 +96,7 @@ const userController = {
         }
     },
     //DELETE friend
-    async addFriend(req, res){
+    async deleteFriend(req, res){
         try{
             const friend = await User.findOneAndUpdate(
                 {_id: req.params.userId},
