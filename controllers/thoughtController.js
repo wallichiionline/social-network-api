@@ -66,7 +66,7 @@ const thoughtController = {
     },
 
     async deleteThought(req, res){
-        Thought.finOneAndDelete(
+        Thought.findOneAndDelete(
             {_id: req.params.thoughtId},
         ).then(thought => {
             if(!thought){
@@ -98,7 +98,7 @@ const thoughtController = {
     },
 
     async deleteReaction(req, res){
-        Thought.findOndAndDelete(
+        Thought.findOndAndUpdate(
             {_id: req.params.thoughtId},
             {$pull: {reactions: {_id: req.params.reactionId}}},
             {runValidators: true, new: true,},

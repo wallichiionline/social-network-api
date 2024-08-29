@@ -17,7 +17,7 @@ const userController = {
             const user = await User.findOne({ _id: req.params.userId })
             .populate({ path: "thoughts", select: "-__v" })
             .populate({ path: "friends", select: "-__v" });
-        if (user){
+        if (!user){
             return res.status(404).json({ message: "No user with that ID" });
         }
         return res.status(200).json(user);
@@ -106,7 +106,7 @@ const userController = {
             if(!friend){
                 return res.stattus(404).json({ message: "No user with this id" });
             }
-            return res.status(200).json({ message: "User was added as a friend" });
+            return res.status(200).json({ message: "User was deleted as a friend" });
         }
         catch (err){
             console.log(err);
