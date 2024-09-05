@@ -98,7 +98,7 @@ const thoughtController = {
     },
 
     async deleteReaction(req, res){
-        Thought.findOndAndUpdate(
+        Thought.findOneAndUpdate(
             {_id: req.params.thoughtId},
             {$pull: {reactions: {_id: req.params.reactionId}}},
             {runValidators: true, new: true,},
